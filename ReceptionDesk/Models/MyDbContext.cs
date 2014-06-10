@@ -9,7 +9,7 @@ namespace ReceptionDesk.Models
 {
     public class MyDbContext:DbContext
     {
-        public MyDbContext() : base("DefaultConnection") { }
+        public MyDbContext() : base("ReceptionDeskConnection") { }
 
         public DbSet<StudyMeeting> StudyMeetings { get; set; }
         public DbSet<Participant> Participants { get; set; }
