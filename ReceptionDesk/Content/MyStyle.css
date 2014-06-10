@@ -1,0 +1,28 @@
+﻿.participant {
+  width: 170px;
+  margin: 10px;
+  float: left;
+}
+.participant .icon {
+  width: 150px;
+}
+.participant .name {
+  font-size: 20px;
+}
+.checked-in {
+  background-color: aquamarine;
+}
+.status {
+  background-color: cyan;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 30px;
+  border-radius: 6px;
+}
+.fee {
+  text-align: right;
+}
+.icon {
+  width: 150px;
+}
+/*# sourceMappingURL=mystyle.css.map */

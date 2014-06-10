@@ -1,0 +1,31 @@
+﻿@model ReceptionDesk.Models.StudyMeeting
+
+@{
+    ViewBag.Title = "勉強会削除";
+}
+
+<h2>勉強会削除</h2>
+
+<h3>この勉強会を削除しますか？</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

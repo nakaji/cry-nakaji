@@ -1,0 +1,30 @@
+﻿@model ReceptionDesk.Models.StudyMeeting
+
+@{
+    ViewBag.Title = "受付";
+}
+
+<h2>受付</h2>
+
+<div class="container">
+    @foreach (var item in Model.Participants)
+    {
+        var checkedIn = item.CheckedIn ? "checked-in" : "";
+        <div class="thumbnail participant @checkedIn" onclick="OnClick(@item.Id)">
+            <div class="img-thumbnail">
+                @MyHelpers.Image(item.ImageUrl, "img-rounded icon")
+            </div>
+            <div class="name">
+                @Html.DisplayFor(x => item.Name)
+            </div>
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    function OnClick(id) {
+        location.href = "../CheckIn/" + id;
+    }
+</script>
+<div>
+    @Html.ActionLink("Back to List", "Index", "StudyMeeting")
+</div>

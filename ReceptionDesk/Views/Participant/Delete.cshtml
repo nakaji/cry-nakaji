@@ -1,0 +1,74 @@
+﻿@model ReceptionDesk.ViewModels.ParticipantEditViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>参加者削除</h2>
+
+<h3>@Model.Participant.Name を削除してもよいですか？</h3>
+<div>
+    <hr />
+    <div class="container">
+        @MyHelpers.Image(Model.Participant.ImageUrl, "img-rounded icon col-md-2")
+    </div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Participant.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Participant.Name)
+        </dd>
+
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Participant.SocialGathering)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Participant.SocialGathering)
+        </dd>
+
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Participant.IsMinors)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Participant.IsMinors)
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Participant.IsInstructor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Participant.IsInstructor)
+        </dd>
+    </dl>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Participant.IsStaff)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Participant.IsStaff)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Add", "Participant", new { id = Model.StudyMeetingId }, null)
+        </div>
+
+        @Html.Hidden("StudyMeetingId", Model.StudyMeetingId)
+    }
+</div>

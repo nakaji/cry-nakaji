@@ -1,0 +1,18 @@
+﻿@helper Image(string url, string @class="")
+{
+    if (string.IsNullOrEmpty(url))
+    {
+        <img src="~/Content/img/default_profile.png" class="@(@class)" />
+    }
+    else
+    {
+        <img src="@url" class="@(@class)" />
+    }
+}
+@helper DisplayBool(bool isOk)
+{
+    if (isOk)
+    {
+        <span>○</span>
+    }
+}

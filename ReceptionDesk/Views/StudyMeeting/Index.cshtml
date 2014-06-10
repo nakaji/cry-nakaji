@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ReceptionDesk.Models.StudyMeeting>
+
+@{
+    ViewBag.Title = "勉強会一覧";
+}
+
+<h2>勉強会一覧</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("参加者登録", "Add", "Participant", new { id = item.Id }, null) |
+                @Html.ActionLink("受付", "List", "Reception", new { id = item.Id }, null) |
+                @Html.ActionLink("集金状況", "TotalFee", "StudyMeeting", new { id = item.Id }, null) |
+                @Html.ActionLink("チェックイン履歴", "CheckInHistory", "Reception", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,66 @@
+﻿@using System.Globalization
+@using Microsoft.Ajax.Utilities
+@model List<ReceptionDesk.Models.CheckInHistory>
+@{
+    ViewBag.Title = "Notify";
+}
+
+<h2>受付状況</h2>
+<div>
+    <table id="checkinHist" class="table">
+        <tr>
+            <th>日時</th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsStudent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.SocialGathering)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsMinors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsInstructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsStaff)
+            </th>
+            <th>参加費</th>
+            <th>懇親会費</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CheckInTime.ToString("HH:mm:ss zz")</td>
+                <td>@item.Participant.Name</td>
+                <td>@MyHelpers.DisplayBool(item.Participant.IsStudent)</td>
+                <td>@MyHelpers.DisplayBool(item.Participant.SocialGathering)</td>
+                <td>@MyHelpers.DisplayBool(item.Participant.IsMinors)</td>
+                <td>@MyHelpers.DisplayBool(item.Participant.IsInstructor)</td>
+                <td>@MyHelpers.DisplayBool(item.Participant.IsStaff)</td>
+                <td>@item.Participant.CalcFee().SeminarFee</td>
+                <td>@item.Participant.CalcFee().SocialGatheringFee</td>
+            </tr>
+        }
+    </table>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/SignalR")
+    <script type="text/javascript">
+        $(function () {
+            var connection = $.hubConnection();
+
+            var notify = connection.createHubProxy("checkInNotify");
+
+            notify.on("ReceiveMessage", function () {
+                location.reload();
+            });
+
+            connection.start();
+        })
+    </script>
+}

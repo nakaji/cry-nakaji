@@ -1,0 +1,101 @@
+﻿@model ReceptionDesk.ViewModels.ParticipantEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Participant</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Participant.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.Name)
+                @Html.ValidationMessageFor(model => model.Participant.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.ImageUrl, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.ImageUrl, new { htmlAttributes = new { @class = "col-md-8" } })
+                @Html.ValidationMessageFor(model => model.Participant.ImageUrl)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.IsStudent, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.IsStudent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.SocialGathering, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.SocialGathering)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.IsMinors, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.IsMinors)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.IsInstructor, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.IsInstructor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.IsStaff, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.IsStaff)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Participant.CheckedIn, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.CheckedIn)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+    @Html.Hidden("StudyMeetingId", Model.StudyMeetingId)
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Add", "Participant", new { id = Model.StudyMeetingId }, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

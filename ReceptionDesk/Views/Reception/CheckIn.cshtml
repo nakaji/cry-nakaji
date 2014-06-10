@@ -1,0 +1,117 @@
+﻿@model ReceptionDesk.Models.Participant
+
+@{
+    ViewBag.Title = "チェックイン";
+}
+
+<h2>@Model.Name</h2>
+@if (Model.IsInstructor)
+{
+    <span class="status">講師</span>
+}
+@if (Model.IsStaff)
+{
+    <span class="status">スタッフ</span>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="container">
+            <div class="col-md-2">
+                <div class="container-fluid">
+                    @MyHelpers.Image(Model.ImageUrl, "col-md-12 icon")
+                </div>
+            </div>
+            <div class=" col-md-3">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.Name)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SocialGathering, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SocialGathering, new { htmlAttributes = new { OnClick = "GetFee()" } })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsStudent, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsStudent, new { htmlAttributes = new { OnClick = "GetFee()" } })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsMinors, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsMinors)
+                        </div>
+                    </div>
+                </div>
+
+                @Html.Hidden("IsInstructor", Model.IsInstructor)
+                @Html.Hidden("IsStaff", Model.IsStaff)
+                @Html.Hidden("CheckedIn", Model.CheckedIn)
+                @Html.Hidden("StudyMeetingId", Model.StudyMeeting.Id)
+            </div>
+            <div class=" col-md-3">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>参加費</td>
+                        <td id="SeminarFee" class="fee"></td>
+                    </tr>
+                    <tr>
+                        <td>懇親会</td>
+                        <td id="SocialGatheringFee" class="fee"></td>
+                    </tr>
+                    <tr>
+                        <td>合計</td>
+                        <td id="TotalFee" class="fee"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="チェックイン" class="btn btn-default btn-lg" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List", new { id = Model.StudyMeeting.Id })
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        function GetFee() {
+            var url = "/api/Fee/" + $("#StudyMeetingId").val() + "?attendSocialGathering=" + $('#SocialGathering').prop('checked') +
+                "&isStudent=" + $('#IsStudent').prop('checked') +
+                "&isInstructor=" + $('#IsInstructor').prop('checked') +
+                "&isStaff=" + $('#IsStaff').prop('checked');
+            $.ajax({
+                url: url,
+                type: "Get",
+                success: function (data) {
+                    $('#SeminarFee').html(data.SeminarFee);
+                    $('#SocialGatheringFee').html(data.SocialGatheringFee);
+                    $('#TotalFee').html(data.SeminarFee + data.SocialGatheringFee);
+                }
+            });
+        }
+
+        $(function () { GetFee(); });
+    </script>
+}

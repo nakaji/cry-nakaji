@@ -1,0 +1,139 @@
+﻿@model ReceptionDesk.ViewModels.ParticipantAddViewModel
+
+@{
+    ViewBag.Title = "参加者登録";
+}
+
+<h2>参加者登録</h2>
+
+<div>
+    <h4>@Model.StudyMeeting.Title</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.Name, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.Name)
+                    @Html.ValidationMessageFor(model => model.Participant.Name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.ImageUrl, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.ImageUrl, new { htmlAttributes = new { @class = "col-md-8" } })
+                    @Html.ValidationMessageFor(model => model.Participant.ImageUrl)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.IsStudent, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.IsStudent)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.SocialGathering, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.SocialGathering)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.IsMinors, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.IsMinors)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.IsInstructor, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.IsInstructor)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Participant.IsStaff, new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Participant.IsStaff)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.IsStudent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.SocialGathering)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.IsMinors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.IsInstructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant.IsStaff)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Participants)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsStudent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SocialGathering)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsMinors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsInstructor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsStaff)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Participant", new { id = item.Id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Participant", new { id = item.Id }, null)
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "StudyMeeting")
+</p>
