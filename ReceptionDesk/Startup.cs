@@ -13,9 +13,6 @@ namespace ReceptionDesk
         {
             ConfigureAuth(app);
 
-            // todo : 最終的にはマイグレーションを使用する
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MyDbContext>());
-
             app.MapSignalR();
         }
     }
