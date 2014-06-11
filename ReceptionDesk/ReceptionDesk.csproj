@@ -212,6 +212,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406091801115_InitialCreate.cs" />
+    <Compile Include="Migrations\201406091801115_InitialCreate.Designer.cs">
+      <DependentUpon>201406091801115_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckInHistory.cs" />
     <Compile Include="Models\FeeInfo.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -311,6 +316,11 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201406091801115_InitialCreate.resx">
+      <DependentUpon>201406091801115_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
