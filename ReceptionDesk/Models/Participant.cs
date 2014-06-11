@@ -37,6 +37,7 @@ namespace ReceptionDesk.Models
         [Display(Name = "チェックイン")]
         public bool CheckedIn { get; set; }
 
+        [Required]
         public virtual StudyMeeting StudyMeeting { get; set; }
 
         public FeeInfo CalcFee()
