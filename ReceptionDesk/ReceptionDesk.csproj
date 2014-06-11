@@ -204,7 +204,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Hub\CheckInNotifyHub.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\StudyMeetingController.cs" />
     <Compile Include="Controllers\api\FeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -217,7 +216,6 @@
     <Compile Include="Models\FeeInfo.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\StudyMeeting.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
