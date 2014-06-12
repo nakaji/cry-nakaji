@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201406111744470_AddRequiredAttributeToStudyMeetingOnParticipant.Designer.cs">
       <DependentUpon>201406111744470_AddRequiredAttributeToStudyMeetingOnParticipant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.cs" />
+    <Compile Include="Migrations\201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.Designer.cs">
+      <DependentUpon>201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckInHistory.cs" />
     <Compile Include="Models\FeeInfo.cs" />
@@ -327,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406111744470_AddRequiredAttributeToStudyMeetingOnParticipant.resx">
       <DependentUpon>201406111744470_AddRequiredAttributeToStudyMeetingOnParticipant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.resx">
+      <DependentUpon>201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
