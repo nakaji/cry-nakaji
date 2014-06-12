@@ -96,9 +96,10 @@ namespace ReceptionDesk.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            StudyMeeting studyMeeting = db.StudyMeetings.Find(id);
-            db.StudyMeetings.Remove(studyMeeting);
-            db.SaveChanges();
+            //ToDo:認証機能入れたら削除できるようにする
+            //StudyMeeting studyMeeting = db.StudyMeetings.Find(id);
+            //db.StudyMeetings.Remove(studyMeeting);
+            //db.SaveChanges();
             return RedirectToAction("Index");
         }
 
