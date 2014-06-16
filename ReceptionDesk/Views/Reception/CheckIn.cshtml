@@ -100,7 +100,7 @@
             var url = "/api/Fee/" + $("#StudyMeetingId").val() + "?attendSocialGathering=" + $('#SocialGathering').prop('checked') +
                 "&isStudent=" + $('#IsStudent').prop('checked') +
                 "&isInstructor=" + $('#IsInstructor').prop('checked') +
-                "&isStaff=" + $('#IsStaff').prop('checked');
+                "&isStaff=" + $('#IsStaff').prop('value');
             $.ajax({
                 url: url,
                 type: "Get",
