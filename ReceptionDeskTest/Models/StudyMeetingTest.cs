@@ -30,6 +30,7 @@ namespace ReceptionDeskTest.Models
                     SocialGathering = false,
                     IsStudent = false,
                     IsInstructor = false,
+                    IsConcerned = false,
                     IsStaff = false
                 };
 
@@ -47,6 +48,7 @@ namespace ReceptionDeskTest.Models
                     SocialGathering = true,
                     IsStudent = false,
                     IsInstructor = false,
+                    IsConcerned = false,
                     IsStaff = false
                 };
 
@@ -64,6 +66,7 @@ namespace ReceptionDeskTest.Models
                     SocialGathering = true,
                     IsStudent = false,
                     IsInstructor = true,
+                    IsConcerned = false,
                     IsStaff = false
                 };
 
@@ -74,14 +77,33 @@ namespace ReceptionDeskTest.Models
             }
 
             [TestMethod]
-            public void スタッフは参加費無料()
+            public void スタッフは参加費を払う()
             {
                 var participant = new Participant()
                 {
                     SocialGathering = true,
                     IsStudent = false,
                     IsInstructor = false,
+                    IsConcerned = false,
                     IsStaff = true
+                };
+
+                var actual = sut.CalcFee(participant);
+
+                Assert.AreEqual(500, actual.SeminarFee);
+                Assert.AreEqual(4000, actual.SocialGatheringFee);
+            }
+
+            [TestMethod]
+            public void 会場関係者は参加費無料()
+            {
+                var participant = new Participant()
+                {
+                    SocialGathering = true,
+                    IsStudent = false,
+                    IsInstructor = false,
+                    IsConcerned = true,
+                    IsStaff = false
                 };
 
                 var actual = sut.CalcFee(participant);

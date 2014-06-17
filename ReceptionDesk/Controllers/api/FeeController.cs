@@ -12,7 +12,7 @@ namespace ReceptionDesk.Controllers.api
             return null;
         }
 
-        public FeeInfo Get(int id, bool attendSocialGathering, bool isStudent, bool isInstructor, bool isStaff)
+        public FeeInfo Get(int id, bool attendSocialGathering, bool isStudent, bool isInstructor, bool isConcerned, bool isStaff)
         {
             var studyMeeting = db.StudyMeetings.Find(id);
 
@@ -21,6 +21,7 @@ namespace ReceptionDesk.Controllers.api
                 SocialGathering = attendSocialGathering,
                 IsStudent = isStudent,
                 IsInstructor = isInstructor,
+                IsConcerned = isConcerned,
                 IsStaff = isStaff
             };
 

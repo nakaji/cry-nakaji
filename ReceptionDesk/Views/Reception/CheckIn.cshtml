@@ -64,7 +64,7 @@
 
                 @Html.Hidden("IsInstructor", Model.IsInstructor)
                 @Html.Hidden("IsStaff", Model.IsStaff)
-                @Html.Hidden("IsConserned", Model.IsConcerned)
+                @Html.Hidden("IsConcerned", Model.IsConcerned)
                 @Html.Hidden("CheckedIn", Model.CheckedIn)
                 @Html.Hidden("StudyMeetingId", Model.StudyMeeting.Id)
             </div>
@@ -102,9 +102,11 @@
 {
     <script type="text/javascript">
         function GetFee() {
-            var url = "/api/Fee/" + $("#StudyMeetingId").val() + "?attendSocialGathering=" + $('#SocialGathering').prop('checked') +
+            var url = "/api/Fee/" + $("#StudyMeetingId").val() +
+                "?attendSocialGathering=" + $('#SocialGathering').prop('checked') +
                 "&isStudent=" + $('#IsStudent').prop('checked') +
-                "&isInstructor=" + $('#IsInstructor').prop('checked') +
+                "&isInstructor=" + $('#IsInstructor').prop('value') +
+                "&isConcerned=" + $('#IsConcerned').prop('value') +
                 "&isStaff=" + $('#IsStaff').prop('value');
             $.ajax({
                 url: url,

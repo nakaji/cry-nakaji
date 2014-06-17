@@ -33,7 +33,7 @@ namespace ReceptionDesk.Models
 
         public FeeInfo CalcFee(Participant participant)
         {
-            var seminarFee = participant.IsStudent || participant.IsInstructor || participant.IsStaff ? 0 : SeminarFee;
+            var seminarFee = participant.IsStudent || participant.IsInstructor || participant.IsConcerned ? 0 : SeminarFee;
 
             var socialGatheringFee = 0;
             if (participant.SocialGathering)
