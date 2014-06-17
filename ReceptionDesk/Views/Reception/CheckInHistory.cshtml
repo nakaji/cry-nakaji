@@ -26,6 +26,9 @@
                 @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsInstructor)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsConcerned)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FirstOrDefault().Participant.IsStaff)
             </th>
             <th>参加費</th>
@@ -40,6 +43,7 @@
                 <td>@MyHelpers.DisplayBool(item.Participant.SocialGathering)</td>
                 <td>@MyHelpers.DisplayBool(item.Participant.IsMinors)</td>
                 <td>@MyHelpers.DisplayBool(item.Participant.IsInstructor)</td>
+                <td>@MyHelpers.DisplayBool(item.Participant.IsConcerned)</td>
                 <td>@MyHelpers.DisplayBool(item.Participant.IsStaff)</td>
                 <td>@item.Participant.CalcFee().SeminarFee</td>
                 <td>@item.Participant.CalcFee().SocialGatheringFee</td>

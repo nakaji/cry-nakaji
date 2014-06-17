@@ -9,6 +9,10 @@
 {
     <span class="status">講師</span>
 }
+@if (Model.IsConcerned)
+{
+    <span class="status">会場関係者</span>
+}
 @if (Model.IsStaff)
 {
     <span class="status">スタッフ</span>
@@ -60,6 +64,7 @@
 
                 @Html.Hidden("IsInstructor", Model.IsInstructor)
                 @Html.Hidden("IsStaff", Model.IsStaff)
+                @Html.Hidden("IsConserned", Model.IsConcerned)
                 @Html.Hidden("CheckedIn", Model.CheckedIn)
                 @Html.Hidden("StudyMeetingId", Model.StudyMeeting.Id)
             </div>

@@ -224,6 +224,10 @@
     <Compile Include="Migrations\201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.Designer.cs">
       <DependentUpon>201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406162045339_AddConcernrdToParticipant.cs" />
+    <Compile Include="Migrations\201406162045339_AddConcernrdToParticipant.Designer.cs">
+      <DependentUpon>201406162045339_AddConcernrdToParticipant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckInHistory.cs" />
     <Compile Include="Models\FeeInfo.cs" />
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.resx">
       <DependentUpon>201406121735001_DeleteRequiredAttributeToStudyMeetingOnParticipant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406162045339_AddConcernrdToParticipant.resx">
+      <DependentUpon>201406162045339_AddConcernrdToParticipant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,42 +24,42 @@
             @Html.DisplayNameFor(model => model.Participants.FirstOrDefault().IsInstructor)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Participants.FirstOrDefault().IsConcerned)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Participants.FirstOrDefault().IsStaff)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Participants.FirstOrDefault().CheckedIn)
         </th>
         <th>勉強会費（予定）</th>
-        <th>勉強会費（実績）</th>
         <th>懇親会費（予定）</th>
+        <th>勉強会費（実績）</th>
         <th>懇親会費（実績）</th>
     </tr>
     @foreach (var item in Model.Participants)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
             <td>@MyHelpers.DisplayBool(item.IsStudent)</td>
             <td>@MyHelpers.DisplayBool(item.SocialGathering)</td>
             <td>@MyHelpers.DisplayBool(item.IsMinors)</td>
             <td>@MyHelpers.DisplayBool(item.IsInstructor)</td>
-            <td>@MyHelpers.DisplayBool(item.IsStudent)</td>
+            <td>@MyHelpers.DisplayBool(item.IsConcerned)</td>
+            <td>@MyHelpers.DisplayBool(item.IsStaff)</td>
             <td>@MyHelpers.DisplayBool(item.CheckedIn)</td>
             <td>@Html.DisplayFor(modelItem => item.CalcFee().SeminarFee)</td>
-            <td>
-                @if (item.CheckedIn)
-                {
-                    @item.CalcFee().SeminarFee.ToString()
-                }
-            </td>
-
             <td>@Html.DisplayFor(modelItem => item.CalcFee().SocialGatheringFee)</td>
             <td>
                 @if (item.CheckedIn)
                 {
-                    @item.CalcFee().SocialGatheringFee.ToString()
+                    @item.CalcFee().SeminarFee
+                }
+            </td>
+            <td>
+                @if (item.CheckedIn)
+                {
+                    @item.CalcFee().SocialGatheringFee
                 }
             </td>
         </tr>
@@ -72,9 +72,10 @@
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
         <td>@Model.EstSeminarFee</td>
-        <td>@Model.ResSeminarFee</td>
         <td>@Model.EstSocialGatheringFee</td>
+        <td>@Model.ResSeminarFee</td>
         <td>@Model.ResSocialGatheringFee</td>
     </tr>
 </table>

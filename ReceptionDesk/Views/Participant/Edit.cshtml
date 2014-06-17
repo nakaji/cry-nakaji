@@ -66,6 +66,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Participant.IsConcerned, new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Participant.IsConcerned)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Participant.IsStaff, new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">

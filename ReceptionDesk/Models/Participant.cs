@@ -27,6 +27,9 @@ namespace ReceptionDesk.Models
 
         [Display(Name = "講師")]
         public bool IsInstructor { get; set; }
+
+        [Display(Name = "会場関係者")]
+        public bool IsConcerned { get; set; }
          
         [Display(Name = "スタッフ")]
         public bool IsStaff { get; set; }
