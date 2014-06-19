@@ -6,6 +6,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 
 namespace ReceptionDesk.Models
 {
@@ -40,6 +41,7 @@ namespace ReceptionDesk.Models
         [Display(Name = "チェックイン")]
         public bool CheckedIn { get; set; }
 
+        [JsonIgnore]
         public virtual StudyMeeting StudyMeeting { get; set; }
 
         public FeeInfo CalcFee()
