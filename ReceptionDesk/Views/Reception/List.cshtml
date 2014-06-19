@@ -5,7 +5,7 @@
 }
 
 <h2>受付</h2>
-<span>チェックイン済みを非表示</span>　<input type="checkbox" name="my-checkbox" checked>
+<span>受付済みを非表示</span>　<input type="checkbox" name="my-checkbox" checked>
 
 <div class="container">
     @foreach (var item in Model.Participants)
@@ -34,7 +34,7 @@
         $(function(){
             $("[name='my-checkbox']").bootstrapSwitch();
             $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
-                $(".checked-in").toggle('fast');　//←fastを追加で滑らかに表示／非表示
+                $(".checked-in").toggle('fast');
             });
         });
 
