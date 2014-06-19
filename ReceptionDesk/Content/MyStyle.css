@@ -12,6 +12,7 @@
 }
 .checked-in {
   background-color: aquamarine;
+  display: none;
 }
 .status {
   background-color: cyan;

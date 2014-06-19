@@ -23,10 +23,12 @@ namespace ReceptionDesk
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/bootstrap-datepicker.js",
                       "~/Scripts/locales/bootstrap-datepicker.ja.js",
+                      "~/Scripts/bootstrap-switch.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-switch/bootstrap3/bootstrap-switch.css",
                       "~/Content/site.css",
                       "~/Content/MyStyle.css"));
 

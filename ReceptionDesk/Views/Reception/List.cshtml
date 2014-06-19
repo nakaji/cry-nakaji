@@ -5,6 +5,7 @@
 }
 
 <h2>受付</h2>
+<span>チェックイン済みを非表示</span>　<input type="checkbox" name="my-checkbox" checked>
 
 <div class="container">
     @foreach (var item in Model.Participants)
@@ -20,11 +21,22 @@
         </div>
     }
 </div>
-<script type="text/javascript">
-    function OnClick(id) {
-        location.href = "../CheckIn/" + id;
-    }
-</script>
 <div>
     @Html.ActionLink("Back to List", "Index", "StudyMeeting")
 </div>
+@section scripts
+{
+    <script type="text/javascript">
+        function OnClick(id) {
+            location.href = "../CheckIn/" + id;
+        }
+
+        $(function(){
+            $("[name='my-checkbox']").bootstrapSwitch();
+            $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function (event, state) {
+                $(".checked-in").toggle('fast');　//←fastを追加で滑らかに表示／非表示
+            });
+        });
+
+    </script>
+}
