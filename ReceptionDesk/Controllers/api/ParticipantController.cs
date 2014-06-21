@@ -16,11 +16,19 @@ using ReceptionDesk.ViewModels;
 
 namespace ReceptionDesk.Controllers.api
 {
+    /// <summary>
+    /// 参加者編集API
+    /// </summary>
     public class ParticipantController : ApiController
     {
         private MyDbContext db = new MyDbContext();
 
         // GET: api/Participant/5
+        /// <summary>
+        /// 参加者情報を取得する
+        /// </summary>
+        /// <param name="id">参加者ID</param>
+        /// <returns></returns>
         [ResponseType(typeof(Participant))]
         public IHttpActionResult GetParticipant(int id)
         {
@@ -29,6 +37,12 @@ namespace ReceptionDesk.Controllers.api
         }
 
         // PUT: api/Participant/5
+        /// <summary>
+        /// 参加者情報を更新する
+        /// </summary>
+        /// <param name="id">参加者ID</param>
+        /// <param name="participant">参加者情報</param>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         public IHttpActionResult PutParticipant(int id, Participant participant)
         {
@@ -54,6 +68,11 @@ namespace ReceptionDesk.Controllers.api
         }
 
         // POST: api/Participant
+        /// <summary>
+        /// 参加者を登録する
+        /// </summary>
+        /// <param name="model">参加者情報</param>
+        /// <returns></returns>
         [ResponseType(typeof(ParticipantEditViewModel))]
         public IHttpActionResult PostParticipant(ParticipantEditViewModel model)
         {
@@ -75,6 +94,11 @@ namespace ReceptionDesk.Controllers.api
         }
 
         // DELETE: api/Participant/5
+        /// <summary>
+        /// 参加者を削除する
+        /// </summary>
+        /// <param name="id">参加者ID</param>
+        /// <returns></returns>
         [ResponseType(typeof(Participant))]
         public IHttpActionResult DeleteParticipant(int id)
         {
