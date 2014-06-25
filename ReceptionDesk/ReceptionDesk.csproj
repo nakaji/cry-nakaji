@@ -274,6 +274,7 @@
     <Compile Include="ViewModels\StudyMeetingViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\XmlDocument.XML" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker3.css" />
@@ -382,9 +383,7 @@
     <Content Include="Views\StudyMeeting\TotalFee.cshtml" />
     <Content Include="Views\Reception\CheckInHistory.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
